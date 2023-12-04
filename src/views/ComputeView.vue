@@ -1,11 +1,9 @@
 <script setup>
- 
+
 </script>
  
 <template>
-Compute
+    <h1>Compute</h1>
 </template>
  
-<style scoped>
- 
-</style>
+<style scoped></style>
