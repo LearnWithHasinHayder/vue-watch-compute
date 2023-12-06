@@ -1,23 +1,28 @@
 <script setup>
 import { ref, computed } from 'vue'
-const n1 = ref(0)
-const n2 = ref(0)
-
-const getTotal = () => {
-    return n1.value + n2.value
-}
-
-const computedTotal = computed(() => n1.value + n2.value)
+const fName = ref('John')
+const lName = ref('Doe')
+//computed fullName with getter and setter
+const fullName = computed({
+    get: () => `${fName.value} ${lName.value}`,
+    set: (value) => {
+        const [newFName, newLName] = value.split(' ')
+        fName.value = newFName
+        lName.value = newLName??''
+    }
+})
 
 </script>
  
 <template>
     <div class="flex flex-col space-y-2">
         <h1>Compute</h1>
-        <input type="number" v-model="n1" />
-        <input type="number" v-model="n2" />
+        <input v-model="fName" />
+        <input v-model="lName" />
 
-        <p>Result: {{ computedTotal }}</p>
+        <p>Result: {{ fullName }}</p>
+
+        <input v-model="fullName">
     </div>
 </template>
  
