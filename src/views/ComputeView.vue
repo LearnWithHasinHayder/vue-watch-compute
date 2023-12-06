@@ -8,14 +8,11 @@ const postIds = ref([1])
 
 watch(postId, (newValue, oldValue) => {
     console.log(`Post ID changed from ${oldValue} to ${newValue}`) 
-})
-
-
-onBeforeMount(() => {
     fetch(`https://jsonplaceholder.typicode.com/posts/${postId.value}`)
         .then(response => response.json())
         .then(json => post.value = json)
-})
+}, { immediate: true })
+
 
 const previousPost = () => {
     postId.value <= 0 ? postId.value-- : postId.value = 1
