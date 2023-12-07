@@ -2,13 +2,14 @@
 import { ref, computed } from 'vue'
 const fName = ref('John')
 const lName = ref('Doe')
-//computed fullName with getter and setter
+
+// const fullName = computed(() => `${fName.value} ${lName.value}`)
 const fullName = computed({
     get: () => `${fName.value} ${lName.value}`,
     set: (value) => {
         const [newFName, newLName] = value.split(' ')
         fName.value = newFName
-        lName.value = newLName??''
+        lName.value = newLName
     }
 })
 
