@@ -5,12 +5,12 @@ const n2 = ref(12)
 
 
 const getTotal = () => {
-    console.log('getTotal called')
+    console.log('Function called')
     return n1.value + n2.value
 }
 
 const computedTotal = computed(() => {
-    console.log('computedTotal called')
+    console.log('Computed called')
     return n1.value + n2.value
 })
 
