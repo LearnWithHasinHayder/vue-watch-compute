@@ -22,7 +22,9 @@ const fullName = computed({
 
         <p>Result: {{ fullName }}</p>
 
-        <input v-model="fullName">
+        <button @click="fullName='Keanu Reeves'" class="w-[150px] bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+          Change Name
+        </button>
     </div>
 </template>
  
